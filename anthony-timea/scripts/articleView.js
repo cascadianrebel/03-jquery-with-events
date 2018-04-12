@@ -57,7 +57,7 @@ articleView.handleAuthorFilter = function() {
 };
 
 articleView.handleCategoryFilter = function() {
-  // TODO: Just like we do for #author-filter above, we should handle change events on the #category-filter element.
+  // DONE: Just like we do for #author-filter above, we should handle change events on the #category-filter element.
   $('#category-filter').on('change', function(){
     if ($(this).val()) {
 
@@ -75,13 +75,12 @@ articleView.handleCategoryFilter = function() {
 };
 
 articleView.handleMainNav = function() {
-  // TODO: Add an event handler to .main-nav elements that will power the Tabs feature.
+  // DONE: Add an event handler to .main-nav elements that will power the Tabs feature.
   $('.main-nav .tab').click(function(event){
     event.preventDefault();
-
-
-
-  })
+    $('.tab-content').hide();
+    $(`#${$(this).attr('data-content')}`).fadeIn(200);
+  });
   // Clicking any .tab element should hide all the .tab-content sections, and then reveal the single .tab-content section that is associated with the clicked .tab element.
   // So: You need to dynamically build a selector string with the correct ID, based on the data available to you on the .tab element that was clicked.
 
